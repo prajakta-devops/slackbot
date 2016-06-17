@@ -1,0 +1,19 @@
+{
+	"help": {
+		"alias": [ "halp" ],
+		"endpoint": "#",
+		"help": "help [command](optional)",
+		"description": "To get help on all supported commands, or a specified command"
+	},
+
+	"branchstatus": {
+		"alias": [],
+		"bitbucketendpoint": "https://bitbucket.org/api/2.0/repositories/belk_ecom/ecomm-applications/branch-restrictions",
+		"help": "branchstatus [branch-name]",
+		"description": "Fetches details of the specified branch-name"
+	},
+
+	"error": {
+		"exclude": true
+	}
+}

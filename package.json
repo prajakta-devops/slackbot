@@ -1,0 +1,23 @@
+{
+  "name": "slack-branchstatusbot",
+  "version": "1.0.0",
+  "description": "Sample app to show working with slack-terminalize module",
+  "main": "index.js",
+  "dependencies": {
+    "request": "^2.65.0",
+    "slack-terminalize": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "engines": {
+    "node": "0.12.x"
+  },
+  "keywords": [
+    "slack",
+    "terminal"
+  ],
+
+  "license": "MIT"
+}
