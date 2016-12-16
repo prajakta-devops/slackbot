@@ -1,0 +1,37 @@
+const Promise = require("bluebird");
+ 
+function loop(startAt,boardId) {
+    return Promise.try(function() {
+       let closedSprintUrl = "https://belkdev.atlassian.net/rest/agile/1.0/board/"+boardId+"/sprint?state=closed&startAt="+startAt
+	
+       let thirdapicalloptions = {
+			uri: closedSprintUrl ,
+			headers : {
+					"Authorization" : "Basic cGNoYXZhbjpqaklJcnJAQDA5MjAxNg=="
+				},
+			json: true
+		 };
+
+       return rp(thirdapicalloptions); 
+    }).then(function(response) {
+        startAt = response.startAt + response.maxResults;
+        if (response.isLast) {
+            return Promise.try(function() {
+                return loop(startAt, boardId);
+            }).then(function(recursiveResults) {
+                return [response.body].concat(recursiveResults);
+            });
+        } else {
+            // Done looping 
+            return [response.body];
+        }
+    });
+}
+ 
+Promise.try(function() {
+    l i = 0;
+  
+    return loop(0,boardId);
+}).then(function(results) {
+    // Now `results` is an array that contains the response for each HTTP request made. 
+})
